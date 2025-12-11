@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Threadlist from './Threadlist.vue'
+import Threadlist from '@/components/Threadlist.vue'
 </script>
 
 <template>

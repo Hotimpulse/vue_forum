@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import sourceData from '../data.json'
+import sourceData from '@/data.json'
 import { computed, ref } from 'vue'
 
 const threads = ref(sourceData.threads)
