@@ -22,7 +22,7 @@ const thread = computed(() => {
 </script>
 
 <template>
-  <div class="col-large push-top">
+  <div v-if="thread" class="col-large push-top">
     <h1>{{ thread?.title }}</h1>
 
     <div class="post-list">
@@ -49,6 +49,12 @@ const thread = computed(() => {
           {{ postById(postId)?.publishedAt }}
         </div>
       </div>
+    </div>
+  </div>
+  <div v-else>
+    <div class="col-full text-center">
+      <h1>This thread does not exist!</h1>
+      <router-link :to="{ name: 'Home' }">Read some cool threads</router-link>
     </div>
   </div>
 </template>
