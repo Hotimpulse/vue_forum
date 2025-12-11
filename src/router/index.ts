@@ -3,6 +3,7 @@ import Home from '@/pages/Home.vue'
 import ThreadShow from '@/pages/ThreadShow.vue'
 import NotFound from '@/pages/NotFound.vue'
 import sourceData from '@/data.json'
+import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
 
 const routes = [
   {
@@ -15,7 +16,11 @@ const routes = [
     name: 'ThreadShow',
     component: ThreadShow,
     props: true,
-    beforeEnter(to, from, next) {
+    beforeEnter(
+      to: RouteLocationNormalized,
+      from: RouteLocationNormalized,
+      next: NavigationGuardNext,
+    ) {
       const threadExists = sourceData.threads.find((thread) => thread.id === to.params.id)
       if (threadExists) {
         return next()
