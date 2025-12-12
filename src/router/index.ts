@@ -4,6 +4,7 @@ import ThreadShow from '@/pages/ThreadShow.vue'
 import NotFound from '@/pages/NotFound.vue'
 import sourceData from '@/data.json'
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
+import Forum from '@/pages/Forum.vue'
 
 const routes = [
   {
@@ -33,6 +34,12 @@ const routes = [
         })
       }
     },
+  },
+  {
+    path: '/forum/:id',
+    name: 'Forum',
+    component: Forum,
+    props: true,
   },
   {
     path: '/:pathMatch(.*)*',

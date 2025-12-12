@@ -23,7 +23,10 @@ function userById(userId: string) {
             }}</router-link>
           </p>
           <p class="text-faded text-xsmall">
-            By <a href="#">{{ userById(thread.userId)?.name }} {{ thread.publishedAt }}</a>
+            By
+            <a href="#"
+              >{{ userById(thread.userId)?.name }} <AppDate :timestamp="thread.publishedAt"
+            /></a>
           </p>
         </div>
 
@@ -36,7 +39,7 @@ function userById(userId: string) {
             <p class="text-xsmall">
               <a href="#">{{ userById(thread.userId)?.name }}</a>
             </p>
-            <p class="text-xsmall text-faded">{{ thread.publishedAt }}</p>
+            <p class="text-xsmall text-faded"><AppDate :timestamp="thread.publishedAt" /></p>
           </div>
         </div>
       </div>
