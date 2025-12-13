@@ -26,7 +26,7 @@ const forum = computed(() => {
     </div>
   </div>
 
-  <div class="col-full">
+  <div class="col-full push-top">
     <ThreadList :threads="threads" />
   </div>
 </template>
