@@ -18,7 +18,8 @@ function getForumsForCategory(category: TCategory) {
     v-for="category in categories"
     :key="category.id"
     :forums="getForumsForCategory(category)"
-    :category-name="category.name"
+    :title="category.name"
+    :categoryId="category.id"
   />
 </template>
 

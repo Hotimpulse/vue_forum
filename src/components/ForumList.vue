@@ -6,9 +6,10 @@ type TForum = (typeof sourceData.forums)[number]
 const props = withDefaults(
   defineProps<{
     forums: TForum[]
-    categoryName: string
+    title: string
+    categoryId?: string
   }>(),
-  { categoryName: 'Forums' },
+  { title: 'Forums' },
 )
 
 function getThreadsText(forum: TForum) {
@@ -20,7 +21,10 @@ function getThreadsText(forum: TForum) {
   <div class="col-full">
     <div class="forum-list">
       <h2 class="list-title">
-        <a href="#">{{ categoryName }}</a>
+        <router-link v-if="categoryId" :to="{ name: 'Category', params: { id: categoryId } }">{{
+          title
+        }}</router-link>
+        <span v-else>{{ title }}</span>
       </h2>
 
       <div class="forum-listing" v-for="forum in props.forums" :key="forum.id">

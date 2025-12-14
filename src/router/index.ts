@@ -5,12 +5,25 @@ import NotFound from '@/pages/NotFound.vue'
 import sourceData from '@/data.json'
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
 import Forum from '@/pages/Forum.vue'
+import Category from '@/pages/Category.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/category/:id',
+    name: 'Category',
+    component: Category,
+    props: true,
+  },
+  {
+    path: '/forum/:id',
+    name: 'Forum',
+    component: Forum,
+    props: true,
   },
   {
     path: '/thread/:id',
@@ -35,12 +48,7 @@ const routes = [
       }
     },
   },
-  {
-    path: '/forum/:id',
-    name: 'Forum',
-    component: Forum,
-    props: true,
-  },
+
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
