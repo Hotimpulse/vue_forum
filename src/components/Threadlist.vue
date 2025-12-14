@@ -2,7 +2,12 @@
 import sourceData from '@/data.json'
 import { ref } from 'vue'
 
-const threads = ref(sourceData.threads)
+type TThread = (typeof sourceData.threads)[number]
+
+defineProps<{
+  threads: TThread[]
+}>()
+
 const users = ref(sourceData.users)
 
 function userById(userId: string) {

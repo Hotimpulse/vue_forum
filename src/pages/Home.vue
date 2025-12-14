@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import ForumList from '@/components/ForumList.vue'
+import CategoryList from '@/components/CategoryList.vue'
 import sourceData from '@/data.json'
 
-const forums = sourceData.forums
+const categories = sourceData.categories
 </script>
 
 <template>
   <h1>Welcome to the Forum!</h1>
-  <ForumList :forums="forums" />
+  <CategoryList :categories="categories" />
 </template>
 
 <style scoped></style>

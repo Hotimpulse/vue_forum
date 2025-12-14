@@ -3,9 +3,13 @@ import sourceData from '@/data.json'
 
 type TForum = (typeof sourceData.forums)[number]
 
-const props = defineProps<{
-  forums: TForum[]
-}>()
+const props = withDefaults(
+  defineProps<{
+    forums: TForum[]
+    categoryName: string
+  }>(),
+  { categoryName: 'Forums' },
+)
 
 function getThreadsText(forum: TForum) {
   return forum.threads?.length ? (forum.threads?.length > 1 ? 'threads' : 'thread') : 'no threads'
@@ -16,7 +20,7 @@ function getThreadsText(forum: TForum) {
   <div class="col-full">
     <div class="forum-list">
       <h2 class="list-title">
-        <a href="#">Forums</a>
+        <a href="#">{{ categoryName }}</a>
       </h2>
 
       <div class="forum-listing" v-for="forum in props.forums" :key="forum.id">
